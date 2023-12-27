@@ -1,7 +1,12 @@
+import com.github.sherter.googlejavaformatgradleplugin.GoogleJavaFormat
+import com.github.sherter.googlejavaformatgradleplugin.VerifyGoogleJavaFormat
+
 plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.2.1'
 	id 'io.spring.dependency-management' version '1.1.4'
+	id 'com.github.sherter.google-java-format' version '0.9'
+	id "com.diffplug.spotless" version "5.11.1"
 }
 
 group = 'com.example'
@@ -23,3 +28,38 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+allprojects {
+
+	apply plugin: 'com.diffplug.spotless'
+
+	spotless {
+		groovyGradle {
+			greclipse()
+		}
+	}
+
+	build.dependsOn 'spotlessCheck'
+}
+
+googleJavaFormat {
+	toolVersion = '1.7'
+	exclude '**/target/generated-sources/swagger*'
+	exclude '**/build/xjc/generated-sources*'
+}
+
+googleJavaFormat {
+	options style: 'AOSP'
+}
+
+task format(type: GoogleJavaFormat) {
+}
+
+task verifyFormatting(type: VerifyGoogleJavaFormat) {
+	//ignoreFailures true
+	exclude '**/target/generated-sources/swagger*'
+	exclude '**/build/xjc/generated-sources*'
+}
+
+build.dependsOn(tasks.verifyGoogleJavaFormat)
+verifyGoogleJavaFormat.finalizedBy(tasks.googleJavaFormat)
