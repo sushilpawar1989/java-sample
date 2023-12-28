@@ -6,14 +6,15 @@ plugins {
 	id 'org.springframework.boot' version '3.2.1'
 	id 'io.spring.dependency-management' version '1.1.4'
 	id 'com.github.sherter.google-java-format' version '0.9'
-	id "com.diffplug.spotless" version "5.11.1"
+	id "com.diffplug.spotless" version "6.23.3"
+	id 'me.champeau.mrjar' version "0.1"
 }
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
-java {
-	sourceCompatibility = '17'
+multiRelease {
+	targetVersions 8
 }
 
 repositories {
@@ -22,6 +23,9 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+	implementation 'org.apache.commons:commons-lang3:3.14.0'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
@@ -45,7 +49,7 @@ allprojects {
 googleJavaFormat {
 	toolVersion = '1.7'
 	exclude '**/target/generated-sources/swagger*'
-	exclude '**/build/xjc/generated-sources*'
+	exclude '**/HomeController2.java'
 }
 
 googleJavaFormat {
