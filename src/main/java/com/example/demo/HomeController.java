@@ -25,8 +25,10 @@ public class HomeController {
         String mm = kk;
 
         String asdasdsad,
+        
                 adasdasdasd,
                 asdadaaa,
+                
                 asdadadasdadadassddadasdasdsdasdasdasdasdasdasdadadasdasdasdaasasdadasdasdsdasdadadasdadadassddadasdasdsdasdasdasdasdasdasdadadasdasdasdaasasdadasdasdsdasdadadasdadadassddadasdasdsdasdasdasdasdasdasdadadasdasdasdaasasdadasdasdsd =
                         kk.toLowerCase();
         List<String> mm1 =
@@ -71,8 +73,10 @@ class StreamMain {
         System.out.println("Places from Nepal:");
 
         // Filter places from Nepal
-        myPlaces.stream()
-                .filter((p) -> p.startsWith("Nepal"))
+        myPlaces
+        .stream()
+                .filter((p
+                		) -> p.startsWith("Nepal"))
                 .map((p) -> p.toUpperCase())
                 .sorted()
                 .forEach((p) -> System.out.println(p));
