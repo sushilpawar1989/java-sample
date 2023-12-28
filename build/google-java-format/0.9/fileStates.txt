@@ -1,0 +1,4 @@
+src/main/resources/eclipse-public-license-1.0.java,1703763734866669591,308,FORMATTED
+src/main/java/com/example/demo/DemoApplication.java,1703763520442776000,624,FORMATTED
+src/main/java/com/example/demo/HomeController.java,1703765518194473500,2384,FORMATTED
+src/test/java/com/example/demo/DemoApplicationTests.java,1703763520444566000,517,FORMATTED

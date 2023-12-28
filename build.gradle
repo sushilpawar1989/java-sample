@@ -33,6 +33,10 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+javadoc {
+	destinationDir = file("${buildDir}/docs/javadoc")
+}
+
 allprojects {
 
 	apply plugin: 'com.diffplug.spotless'
@@ -40,6 +44,9 @@ allprojects {
 	spotless {
 		groovyGradle {
 			greclipse()
+		}
+		java {
+			licenseHeaderFile rootProject.file('src/main/resources/eclipse-public-license-1.0.java')
 		}
 	}
 
