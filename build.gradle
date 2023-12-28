@@ -14,7 +14,7 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
 multiRelease {
-	targetVersions 8
+	targetVersions 17
 }
 
 repositories {

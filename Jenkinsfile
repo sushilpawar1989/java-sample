@@ -8,19 +8,19 @@ pipeline {
             }
             stage('Clean') {
                 steps {
-                    sh "./gradlew -b clean"
+                    sh "./gradlew clean"
                 }
             }
             stage('Build') {
                 steps {
-                    sh "./gradlew -b build -x test -i"
+                    sh "./gradlew build -x test -i"
                 }
             }
 
             stage('Test') {
                 
                 steps {
-                    sh "./gradlew -b test"
+                    sh "./gradlew test"
                 }
             }
         }
