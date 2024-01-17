@@ -1,0 +1,70 @@
+#!/bin/bash
+
+# Function to validate the JIRA format
+validate_jira_format() {
+    local jira_pattern="^(LENS|OBS)-[0-9]+$"
+    if ! [[ $1 =~ $jira_pattern ]]; then
+        echo "Error: Invalid JIRA format. Please provide valid JIRA IDs with prefixes LENS or OBS."
+        exit 1
+    fi
+}
+
+# Prompt for meta labels
+echo "Default meta label used sigma"
+meta_labels="sigma"
+
+# Check if meta_labels is equal to "sigma"
+if [[ ! $meta_labels =~ ^sigma$ ]]; then
+    echo "Error: [sigma] is a compulsory meta label"
+    exit 1
+fi
+
+# Prompt for on-prem meta label
+read -p "Are changes specific to on-prem? (y/n): " on_prem_input
+on_prem=""
+if [[ $on_prem_input =~ ^[Yy]$ ]]; then
+    on_prem="[on-prem]"
+fi
+
+# Prompt for at least one JIRA ID
+jira_ids=()
+while true; do
+    read -p "Enter a JIRA ID (e.g., LENS-123) or press Enter to finish: " jira_id
+    if [[ -z "$jira_id" ]]; then
+        if [[ ${#jira_ids[@]} -eq 0 ]]; then
+            echo "Error: At least one JIRA ID is required. Please provide a valid JIRA ID."
+            exit 1
+        else
+            break
+        fi
+    fi
+    validate_jira_format "$jira_id"
+    jira_ids+=("$jira_id")
+done
+
+# Prompt for clear part of the commit message
+echo "Enter clear commit message (type your message and press Ctrl + D when done): "
+clear_commit_msg=$(cat)
+
+# Check if clear_commit_msg is non-blank
+if [[ -z "$clear_commit_msg" ]]; then
+    echo "Error: Clear commit message is compulsory. Please provide a non-blank commit message."
+    exit 1
+fi
+
+# Construct the commit message
+commit_msg="[$meta_labels] $on_prem ${jira_ids[@]} : $clear_commit_msg"
+
+# Display a blank line and then the constructed commit message in bold
+echo -e "\n\033[1mConstructed Commit Message:\033[0m"
+echo -e "\033[1m$commit_msg\033[0m\n"
+
+# Ask for confirmation
+read -p "Do you want to commit with this message? (y/n): " confirm
+if [[ $confirm =~ ^[Yy]$ ]]; then
+    # Commit the changes
+    git commit -m "$commit_msg"
+    echo "Changes committed successfully."
+else
+    echo "Commit canceled."
+fi

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.55.0" timestamp="2024-01-17T11:45:36.731">
+<file name="/Users/sushilp/Desktop/cloudera/test/java-sample/src/main/java/hello/HelloWorld.java">
+<violation beginline="2" endline="2" begincolumn="1" endcolumn="20" rule="UnusedImports" ruleset="Best Practices" package="hello" class="HelloWorld" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedimports" priority="4">
+Unused import 'java.io.File'
+</violation>
+<violation beginline="6" endline="6" begincolumn="17" endcolumn="17" rule="AvoidLiteralInFunctionRule" ruleset="Sigma ruleset" package="hello" class="HelloWorld" priority="1">
+Avoid using number or string literals directly in any function, method, function call, or expression.
+</violation>
+<violation beginline="6" endline="6" begincolumn="14" endcolumn="14" rule="ShortVariable" ruleset="Code Style" package="hello" class="HelloWorld" variable="k" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like k
+</violation>
+<violation beginline="9" endline="9" begincolumn="33" endcolumn="42" rule="AvoidLiteralInFunctionRule" ruleset="Sigma ruleset" package="hello" class="HelloWorld" method="modifyParameter" priority="1">
+Avoid using number or string literals directly in any function, method, function call, or expression.
+</violation>
+<violation beginline="12" endline="12" begincolumn="48" endcolumn="65" rule="AvoidLiteralInFunctionRule" ruleset="Sigma ruleset" package="hello" class="HelloWorld" priority="1">
+Avoid using number or string literals directly in any function, method, function call, or expression.
+</violation>
+</file>
+<file name="/Users/sushilp/Desktop/cloudera/test/java-sample/src/main/java/hello/MeaningfulConstantNamesRule.java">
+<violation beginline="24" endline="24" begincolumn="32" endcolumn="33" rule="AvoidLiteralInFunctionRule" ruleset="Sigma ruleset" package="hello" class="MeaningfulConstantNamesRule" method="hasMeaninglessName" priority="1">
+Avoid using number or string literals directly in any function, method, function call, or expression.
+</violation>
+</file>
+<file name="/Users/sushilp/Desktop/cloudera/test/java-sample/src/main/java/hello/PMDRuleViolationExample.java">
+<violation beginline="5" endline="5" begincolumn="28" endcolumn="42" rule="AvoidLiteralInFunctionRule" ruleset="Sigma ruleset" class="PMDRuleViolationExample" method="printMessage" priority="1">
+Avoid using number or string literals directly in any function, method, function call, or expression.
+</violation>
+<violation beginline="10" endline="10" begincolumn="16" endcolumn="16" rule="AvoidLiteralInFunctionRule" ruleset="Sigma ruleset" class="PMDRuleViolationExample" method="addNumbers" priority="1">
+Avoid using number or string literals directly in any function, method, function call, or expression.
+</violation>
+<violation beginline="10" endline="10" begincolumn="16" endcolumn="16" rule="AvoidLiteralInFunctionRule" ruleset="Sigma ruleset" class="PMDRuleViolationExample" method="addNumbers" priority="1">
+Avoid using number or string literals directly in any function, method, function call, or expression.
+</violation>
+<violation beginline="10" endline="10" begincolumn="20" endcolumn="20" rule="AvoidLiteralInFunctionRule" ruleset="Sigma ruleset" class="PMDRuleViolationExample" method="addNumbers" priority="1">
+Avoid using number or string literals directly in any function, method, function call, or expression.
+</violation>
+<violation beginline="10" endline="10" begincolumn="20" endcolumn="20" rule="AvoidLiteralInFunctionRule" ruleset="Sigma ruleset" class="PMDRuleViolationExample" method="addNumbers" priority="1">
+Avoid using number or string literals directly in any function, method, function call, or expression.
+</violation>
+<violation beginline="20" endline="20" begincolumn="31" endcolumn="32" rule="AvoidLiteralInFunctionRule" ruleset="Sigma ruleset" class="PMDRuleViolationExample" method="calculateSum" priority="1">
+Avoid using number or string literals directly in any function, method, function call, or expression.
+</violation>
+<violation beginline="20" endline="20" begincolumn="31" endcolumn="32" rule="AvoidLiteralInFunctionRule" ruleset="Sigma ruleset" class="PMDRuleViolationExample" method="calculateSum" priority="1">
+Avoid using number or string literals directly in any function, method, function call, or expression.
+</violation>
+</file>
+<file name="/Users/sushilp/Desktop/cloudera/test/java-sample/src/main/java/hello/adsasd.java">
+<violation beginline="18" endline="18" begincolumn="19" endcolumn="19" rule="AvoidLiteralInFunctionRule" ruleset="Sigma ruleset" package="hello" class="adsasd" method="performOperation" priority="1">
+Avoid using number or string literals directly in any function, method, function call, or expression.
+</violation>
+<violation beginline="20" endline="20" begincolumn="13" endcolumn="21" rule="OnlyOneReturn" ruleset="Code Style" package="hello" class="adsasd" method="performOperation" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="20" endline="20" begincolumn="20" endcolumn="20" rule="AvoidLiteralInFunctionRule" ruleset="Sigma ruleset" package="hello" class="adsasd" method="performOperation" priority="1">
+Avoid using number or string literals directly in any function, method, function call, or expression.
+</violation>
+<violation beginline="22" endline="22" begincolumn="13" endcolumn="22" rule="OnlyOneReturn" ruleset="Code Style" package="hello" class="adsasd" method="performOperation" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="22" endline="22" begincolumn="21" endcolumn="21" rule="AvoidLiteralInFunctionRule" ruleset="Sigma ruleset" package="hello" class="adsasd" method="performOperation" priority="1">
+Avoid using number or string literals directly in any function, method, function call, or expression.
+</violation>
+<violation beginline="24" endline="24" begincolumn="20" endcolumn="20" rule="AvoidLiteralInFunctionRule" ruleset="Sigma ruleset" package="hello" class="adsasd" method="performOperation" priority="1">
+Avoid using number or string literals directly in any function, method, function call, or expression.
+</violation>
+</file>
+</pmd>

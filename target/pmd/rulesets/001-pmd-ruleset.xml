@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<ruleset name="Sigma ruleset"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+  <description>
+    Sigma PMD rule set
+  </description>
+
+
+<rule ref="category/java/bestpractices.xml/ExcessiveLength">
+    <properties>
+        <property name="maximum" value="150"/>
+    </properties>
+</rule>
+
+<rule ref="category/java/codestyle.xml/OnlyOneReturn" />
+
+<rule name="AvoidLiteralInFunctionRule"
+      language="java"
+      class="net.sourceforge.pmd.lang.rule.XPathRule"
+      message="Avoid using number or string literals directly in any function, method, function call, or expression.">
+    <description>Avoid using number or string literals directly in any function, method, function call, or expression.</description>
+    
+    <priority>1</priority>
+
+    <!-- Use XPath to identify literals in various contexts -->
+    <properties>
+        <property name="xpath">
+            <value><![CDATA[
+                //PrimaryExpression/PrimaryPrefix/Literal |
+                //AdditiveExpression/PrimaryExpression/PrimaryPrefix/Literal |
+                //MultiplicativeExpression/PrimaryExpression/PrimaryPrefix/Literal |
+                //PrimaryExpression/PrimaryPrefix/PrimarySuffix/Arguments/ArgumentList/Expression/PrimaryExpression/PrimaryPrefix/Literal
+            ]]></value>
+        </property>
+    </properties>
+</rule>
+
+<rule ref="rulesets/java/imports.xml/UnusedImports"/>
+
+  <rule name="TooManyConstructor"
+      language="java"
+      message="Consider using step builder instead of constructor"
+      class="net.sourceforge.pmd.lang.rule.XPathRule" >
+    <description>
+      Consider using step builder instead of constructor
+    </description>
+    <priority>3</priority>
+    <properties>
+      <property name="xpath">
+        <value>
+          <![CDATA[
+          //TypeDeclaration/ClassOrInterfaceDeclaration/ClassOrInterfaceBody[count(./ClassOrInterfaceBodyDeclaration/ConstructorDeclaration) >= 3]
+          ]]>
+        </value>
+      </property>
+    </properties>
+  </rule>
+  <rule ref="category/java/performance.xml/AvoidInstantiatingObjectsInLoops" />
+  <rule ref="category/java/design.xml/ExcessiveMethodLength">
+    <properties>
+      <property name="minimum" value="50.0" />
+    </properties>
+  </rule>
+  <rule ref="category/java/design.xml/ExcessiveClassLength">
+    <properties>
+      <property name="minimum" value="300.0" />
+    </properties>
+  </rule>
+  <rule name="InvalidBooleanMethodName"
+      language="java"
+      message="STRIVE for methods that returns a boolean to begin with question verbs e.g. 'is', 'are', ‘can’, ‘has’, 'will'"
+      class="net.sourceforge.pmd.lang.rule.XPathRule" >
+    <description>
+      STRIVE for methods that returns a boolean to begin with question verbs e.g. 'is', 'are', ‘can’, ‘has’, 'will'
+    </description>
+    <priority>3</priority>
+    <properties>
+      <property name="xpath">
+        <value>
+          <![CDATA[
+          //TypeDeclaration/ClassOrInterfaceDeclaration/ClassOrInterfaceBody/ClassOrInterfaceBodyDeclaration
+   [
+    MethodDeclaration
+        [
+            not (
+                starts-with(@Name,'is')
+                or
+                starts-with(@Name,'are')
+                or
+                starts-with(@Name,'can')
+                or
+                starts-with(@Name,'has')
+                or
+                starts-with(@Name,'will')
+            )
+        ]
+        [
+            (
+              ResultType/Type/PrimitiveType[@Image = 'boolean']
+              or ResultType/Type/ReferenceType/ClassOrInterfaceType[pmd-java:typeIs('java.lang.Boolean')]
+            )
+            and not(../Annotation//Name[@Image = 'Override'])
+        ]
+   ]
+          ]]>
+        </value>
+      </property>
+    </properties>
+  </rule>
+  <rule name="InvalidTestMethodName"
+      language="java"
+      message="Test method name should NOT include the word 'test'"
+      class="net.sourceforge.pmd.lang.rule.XPathRule" >
+    <description>
+      Test method name should NOT include the word 'test' - that is communicated by @Test annotation.
+    </description>
+    <priority>3</priority>
+    <properties>
+      <property name="xpath">
+        <value>
+          //MethodDeclaration[starts-with(@Name,'test')]
+          [../Annotation/MarkerAnnotation/Name[@Image="Test"]]
+        </value>
+      </property>
+    </properties>
+  </rule>
+  <rule ref="category/java/errorprone.xml/AvoidLiteralsInIfCondition" />
+  <rule ref="category/java/design.xml/AvoidDeeplyNestedIfStmts">
+    <properties>
+      <property name="problemDepth" value="3" />
+    </properties>
+  </rule>
+  <rule ref="category/java/design.xml/CyclomaticComplexity">
+    <properties>
+      <property name="classReportLevel" value="40" />
+      <property name="methodReportLevel" value="8" />
+    </properties>
+  </rule>
+  <rule ref="category/java/codestyle.xml/ShortVariable">
+    <properties>
+      <property name="minimum" value="3" />
+    </properties>
+  </rule>
+</ruleset>
